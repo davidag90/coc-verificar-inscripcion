@@ -1,0 +1,17 @@
+#coc-verificar-inscripcion-result .alert {
+  transition: opacity 0.5s ease-in-out;
+}
+
+#coc-verificar-inscripcion-form {
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 576px) {
+  #search-input {
+    width: 100%;
+  }
+}
+
+#search-input label {
+  min-width: 7rem;
+}
