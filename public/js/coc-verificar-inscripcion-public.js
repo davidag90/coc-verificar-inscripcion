@@ -19,22 +19,24 @@ const getData = async () => {
 inscriptos = getData();
 
 const form = document.getElementById("coc-verificar-inscripcion-form");
-const resultDiv = document.getElementById("#coc-verificar-inscripcion-result");
+const resultDiv = document.getElementById("coc-verificar-inscripcion-result");
 const searchInput = document.querySelector("#search-input > input");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const dni = parseInt(form.dni.value.trim());
-  console.log(dni);
 
   if (!dni) {
+    console.log("fade-start");
     jQuery(resultDiv).fadeOut(300, function () {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
       resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-2"></i> <div>Por favor, ingrese un DNI válido.</div>`;
-
+      console.error("No DNI");
       jQuery(resultDiv).fadeIn(300);
     });
+    console.log("fade-end");
+
     return;
   }
 
@@ -48,10 +50,12 @@ form.addEventListener("submit", async (e) => {
     if (statusInscripcion) {
       resultDiv.classList.remove("alert-danger");
       resultDiv.classList.add("alert-success");
+      console.log("Good DNI");
       resultDiv.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i> <div>Inscripción encontrada a nombre de ${statusInscripcion.nombre}</div>`;
     } else {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
+      console.error("Bad DNI");
       resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-2"></i> <div>No se encontró inscripción para el DNI ingresado.</div>`;
     }
 
