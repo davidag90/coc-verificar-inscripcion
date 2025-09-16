@@ -85,7 +85,7 @@ function coc_settings_page()
             <input type="file" name="coc_json_file" id="coc_json_file" accept=".json">
             <?php if ($current_file): ?>
               <p class="description">
-                Archivo a subir: <?php echo esc_html(basename($current_file)); ?>
+                Archivo actual: <?php echo esc_html(basename($current_file)); ?>
               </p>
             <?php endif; ?>
           </td>
