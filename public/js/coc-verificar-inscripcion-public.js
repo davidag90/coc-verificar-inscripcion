@@ -27,15 +27,13 @@ form.addEventListener("submit", async (e) => {
   const dni = parseInt(form.dni.value.trim());
 
   if (!dni) {
-    console.log("fade-start");
     jQuery(resultDiv).fadeOut(300, function () {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
-      resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-2"></i> <div>Por favor, ingrese un DNI válido.</div>`;
+      resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-3"></i> <div>Por favor, ingrese un DNI válido.</div>`;
       console.error("No DNI");
       jQuery(resultDiv).fadeIn(300);
     });
-    console.log("fade-end");
 
     return;
   }
@@ -50,13 +48,14 @@ form.addEventListener("submit", async (e) => {
     if (statusInscripcion) {
       resultDiv.classList.remove("alert-danger");
       resultDiv.classList.add("alert-success");
-      console.log("Good DNI");
-      resultDiv.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i> <div>Inscripción encontrada a nombre de ${statusInscripcion.nombre}</div>`;
+      resultDiv.innerHTML = `<i class="fa-solid fa-circle-check me-3"></i> <div>Inscripción encontrada a nombre de <strong>${statusInscripcion.nombre}</strong>.
+                            Te esperamos el <strong>26 de septiembre</strong> a partir de las 8 AM en la sede del evento.</div>`;
     } else {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
-      console.error("Bad DNI");
-      resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-2"></i> <div>No se encontró inscripción para el DNI ingresado.</div>`;
+      resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-3"></i> <div>No se encontró ninguna inscripción con el DNI ingresado.
+                            Por favor, intente nuevamente más tarde si ya completó su inscripción, o bien puede inscribirse en forma presencial
+                            el 26 de septiembre a partir de las 8 AM en la sede del evento</div>`;
     }
 
     jQuery(resultDiv).fadeIn(300);
