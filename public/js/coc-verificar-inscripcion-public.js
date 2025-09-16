@@ -31,7 +31,6 @@ form.addEventListener("submit", async (e) => {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
       resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-3"></i> <div>Por favor, ingrese un DNI válido.</div>`;
-      console.error("No DNI");
       jQuery(resultDiv).fadeIn(300);
     });
 
@@ -53,9 +52,9 @@ form.addEventListener("submit", async (e) => {
     } else {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
-      resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-3"></i> <div>No se encontró ninguna inscripción con el DNI ingresado.
-                            Por favor, intente nuevamente más tarde si ya completó su inscripción, o bien puede inscribirse en forma presencial
-                            el 26 de septiembre a partir de las 8 AM en la sede del evento</div>`;
+      resultDiv.innerHTML = `<i class="fa-solid fa-circle-xmark me-3"></i> <div>No se encontró inscripción con su DNI. Puede consultar por WhatsApp al
+                            <a href="https://wa.me/5493512372986" target="_blank">+54 9 351 2372-986</a> o inscribirse personalmente el día del evento
+                            a partir de las 8 AM.</div>`;
     }
 
     jQuery(resultDiv).fadeIn(300);
