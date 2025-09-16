@@ -48,7 +48,7 @@ form.addEventListener("submit", async (e) => {
       resultDiv.classList.remove("alert-danger");
       resultDiv.classList.add("alert-success");
       resultDiv.innerHTML = `<i class="fa-solid fa-circle-check me-3"></i> <div>Inscripción encontrada a nombre de <strong>${statusInscripcion.nombre}</strong>.
-                            Te esperamos el <strong>26 de septiembre</strong> a partir de las 8 AM en la sede del evento.</div>`;
+                            Te esperamos el día del evento <strong>a partir de las 8 AM</strong> en el <strong>Hotel Quinto Centenario</strong> <em>(ex-Sheraton)</em>.</div>`;
     } else {
       resultDiv.classList.remove("alert-success");
       resultDiv.classList.add("alert-danger");
