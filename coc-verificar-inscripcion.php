@@ -3,7 +3,7 @@
 /**
  * Plugin Name: COC Verificar Inscripción
  * Description: Plugin para verificar la inscripción de asistentes a las 23° Jornadas Internacionales.
- * Version: 0.2
+ * Version: 1.0
  * Author: David Alejandro Gómez
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
