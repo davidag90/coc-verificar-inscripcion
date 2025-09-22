@@ -3,7 +3,7 @@
 /**
  * Plugin Name: COC Verificar Inscripción
  * Description: Plugin para verificar la inscripción de asistentes a las 23° Jornadas Internacionales.
- * Version: 1.0
+ * Version: 1.1
  * Author: David Alejandro Gómez
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,8 +15,15 @@ if (! defined('ABSPATH')) {
   exit;
 }
 
-// Incluir el archivo de funciones
-// require_once plugin_dir_path( __FILE__ ) . 'includes/functions.php';
+function get_plugin_version()
+{
+  if (! function_exists('get_plugin_data')) {
+    require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+  }
+  $plugin_data = get_plugin_data(__FILE__);
+
+  return $plugin_data['Version'];
+}
 
 // Add this near the top of your file, after the initial plugin information
 require_once plugin_dir_path(__FILE__) . 'includes/admin-settings.php';
@@ -25,8 +32,10 @@ require_once plugin_dir_path(__FILE__) . 'includes/shortcodes.php';
 // Queue and localize script with AJAX URL and nonce
 function coc_verificar_inscripcion_enqueue_scripts()
 {
-  wp_enqueue_style('coc-verificar-inscripcion-styles', plugin_dir_url(__FILE__) . 'public/css/coc-verificar-inscripcion-public.css', array(), null, 'all');
-  wp_enqueue_script('coc-verificar-inscripcion-script', plugin_dir_url(__FILE__) . 'public/js/coc-verificar-inscripcion-public.js', array('jquery'), null, true);
+  $ver = get_plugin_version();
+
+  wp_enqueue_style('coc-verificar-inscripcion-styles', plugin_dir_url(__FILE__) . 'public/css/coc-verificar-inscripcion-public.css', array(), $ver, 'all');
+  wp_enqueue_script('coc-verificar-inscripcion-script', plugin_dir_url(__FILE__) . 'public/js/coc-verificar-inscripcion-public.js', array('jquery'), $ver, true);
 
   $upload_dir = WP_CONTENT_URL . '/uploads';
   $plugin_upload_dir = $upload_dir . '/coc-verificar-inscripcion';
